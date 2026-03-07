@@ -5,4 +5,35 @@
 
 ---@module 'lazy'
 ---@type LazySpec
-return {}
+return {
+  { 'catppuccin/nvim', name = 'catppuccin' },
+  {
+    'ishan9299/nvim-solarized-lua',
+    config = function()
+      vim.o.termguicolors = true
+      vim.o.background = 'light'
+
+      -- vim.cmd 'colorscheme solarized'
+    end,
+  },
+  {
+    'rose-pine/neovim',
+    name = 'rose-pine',
+    priority = 1000,
+    config = function()
+      require('rose-pine').setup {
+        styles = {
+          italic = false,
+        },
+      }
+
+      vim.cmd 'colorscheme rose-pine-main'
+    end,
+  },
+  {
+    'flayshon/snapcol.nvim',
+    opts = {
+      filetypes = nil,
+    },
+  },
+}
